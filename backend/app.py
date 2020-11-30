@@ -1,15 +1,20 @@
 from flask import Flask
 import time
 from simulator import Simulator
+from flask import request
 
 app = Flask(__name__)
 
-@app.route('/test')
+@app.route('/simulate', methods=['POST'])
 def get():
-    number_of_requests = 2
-    bounding_box = (13.34014892578125, 82.52791908000258, 13.506317138671875, 52.562995039558004)
-    result = Simulator(bounding_box).simulate(20)
-    return {'result': result}
+    no_of_requests = request.json['noOfRequests']
+    bounding_box = request.json['boundingBox']
+    result = Simulator(tuple(bounding_box)).simulate(no_of_requests)
+    return {
+        'bookingDistanceBins': result['booking_distance_bins'],
+        'mostPopularDropoffPoints': result['most_popular_dropoff_points'],
+        'mostPopularPickupPoints': result['most_popular_pickup_points']
+    }
     
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=5000)
