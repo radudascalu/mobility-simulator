@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 
 function Step1() {
-  const [boundingBox, setBoundingBox] = useState(0);
+  
 
   return (
     <div>

@@ -1,4 +1,6 @@
-# Description
+## Description
+
+The project simulates ridepooling services in Berlin and displays the resulted KPIs.
 
 The frontend project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and the backed project was created using Flask. It was developed on a Windows environment but the setup instructions should work on any other environment.
 
