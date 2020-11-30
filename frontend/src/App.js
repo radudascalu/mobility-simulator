@@ -1,9 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import Step1 from './Step1/Step1';
 import Step2 from './Step2/Step2';
 import Results from './Results/Results';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
@@ -11,6 +10,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 
 function App() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [noOfRequests, setNoOfRequests] = useState(10);
 
   function next() {
     setCurrentStep(currentStep + 1);
@@ -33,8 +33,8 @@ function App() {
       
       <Container maxWidth="sm">
         {currentStep == 1 && <Step1></Step1>}
-        {currentStep == 2 && <Step2></Step2>}
-        {currentStep == 3 && <Results></Results>}
+        {currentStep == 2 && <Step2 onNoOfRequestsChange={setNoOfRequests}></Step2>}
+        {currentStep == 3 && <Results noOfRequests={noOfRequests}></Results>}
 
 
         <div className="Buttons-wrapper">

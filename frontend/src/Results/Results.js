@@ -5,14 +5,14 @@ import axios from 'axios';
 import { MapContainer, Marker, TileLayer, Popup } from 'react-leaflet';
 const L = require('leaflet');
 
-function Results() {
+function Results(props) {
   const [bookingDistanceBins, setBookingDistanceBins] = useState(null);
   const [mostPopularPickupPoints, setMostPopularPickupPoints] = useState({features: []});
   const [mostPopularDropoffPoints, setMostPopularDropoffPoints] = useState({features: []});
 
   useEffect(() => {
     axios.post('/simulate', {
-      noOfRequests: 20,
+      noOfRequests: props.noOfRequests,
       boundingBox: [13.34014892578125, 52.52791908000258, 13.506317138671875, 52.562995039558004]
     })
     .then(function (response) {

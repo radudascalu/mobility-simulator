@@ -9,12 +9,13 @@ app = Flask(__name__)
 # I kept it simple and left everything in app.py 
 @app.route('/simulate', methods=['POST'])
 def get():
-    no_of_requests = request.json['noOfRequests']
-    bounding_box = request.json['boundingBox']
-    if no_of_requests is None or bounding_box is None or len(bounding_box) != 4:
+    if "noOfRequests" not in request.json or 'boundingBox' not in request.json:
         abort(400)
 
+    no_of_requests = request.json['noOfRequests']
+    bounding_box = request.json['boundingBox']
     result = Simulator(tuple(bounding_box)).simulate(no_of_requests)
+    
     return {
         'bookingDistanceBins': result['booking_distance_bins'],
         'mostPopularDropoffPoints': result['most_popular_dropoff_points'],
