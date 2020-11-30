@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, abort
 import time
 from simulator import Simulator
 from flask import request
@@ -15,7 +15,7 @@ def get():
     no_of_requests = request.json['noOfRequests']
     bounding_box = request.json['boundingBox']
     result = Simulator(tuple(bounding_box)).simulate(no_of_requests)
-    
+
     return {
         'bookingDistanceBins': result['booking_distance_bins'],
         'mostPopularDropoffPoints': result['most_popular_dropoff_points'],

@@ -24,3 +24,6 @@ In order to run the project locally (in development mode) follow these steps:
 - run the app using `yarn start`;
 - the app is available on port 3000 and will open automatically in your default browser;
 
+## Tests
+
+I've done interaction testing on the App.js component and they cover the use cases of the navigation buttons. The tests can be run with `yarn test`.
