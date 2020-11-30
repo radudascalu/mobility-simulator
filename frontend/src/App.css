@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.Buttons-wrapper {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.Buttons-wrapper Button {
+  margin-right: 1rem;
+}

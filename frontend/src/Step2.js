@@ -9,7 +9,7 @@ function Step2() {
   return (
     <div>
       <h2>Step 2/2</h2>
-      <h3>Select the number of services</h3>
+      <h3>Select the number of ridepooling services to simulate</h3>
 
       
       <Slider 

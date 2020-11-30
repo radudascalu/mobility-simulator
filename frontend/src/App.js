@@ -10,8 +10,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
 function App() {
-  const [result, setResult] = useState(null);
-  const [currentTime, setCurrentTime] = useState(0);
   const [currentStep, setCurrentStep] = useState(1);
 
   function next() {
@@ -22,6 +20,10 @@ function App() {
     setCurrentStep(currentStep - 1);
   }
 
+  function reset() {
+    setCurrentStep(1);
+  }
+
   return (
     <div className="App">
       <AppBar position="static">
@@ -30,19 +32,20 @@ function App() {
       </AppBar>
       
       <Container maxWidth="sm">
-        The result is {result}.
         {currentStep == 1 && <Step1></Step1>}
         {currentStep == 2 && <Step2></Step2>}
         {currentStep == 3 && <Results></Results>}
 
-        <Button variant="outlined" onClick={previous} disabled={currentStep != 2}>
-          Back
-        </Button>
-        
-        <Button onClick={next} variant="contained" color="primary">
-          Next
-        </Button>
-    
+
+        <div className="Buttons-wrapper">
+          {currentStep < 3
+            ? <div>
+                <Button variant="outlined" onClick={previous} disabled={currentStep != 2}>Back</Button>
+                <Button onClick={next} variant="contained" color="primary">Next</Button>
+              </div>
+            : <Button onClick={reset} variant="contained" color="primary">Reset</Button>
+          }
+        </div>
       </Container>
     </div>
   );
