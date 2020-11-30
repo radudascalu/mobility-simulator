@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './Step2.css';
 import React, { useState, useEffect } from 'react';
 import Slider from '@material-ui/core/Slider';

@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import Step1 from './Step1';
-import Step2 from './Step2';
-import Results from './Results';
+import Step1 from './Step1/Step1';
+import Step2 from './Step2/Step2';
+import Results from './Results/Results';
 import React, { useState, useEffect } from 'react';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';

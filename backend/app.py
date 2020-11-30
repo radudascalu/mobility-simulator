@@ -9,6 +9,9 @@ app = Flask(__name__)
 def get():
     no_of_requests = request.json['noOfRequests']
     bounding_box = request.json['boundingBox']
+    if no_of_requests is None or bounding_box is None or len(bounding_box) != 4:
+        abort(400)
+
     result = Simulator(tuple(bounding_box)).simulate(no_of_requests)
     return {
         'bookingDistanceBins': result['booking_distance_bins'],
