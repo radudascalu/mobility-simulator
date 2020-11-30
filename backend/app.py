@@ -5,6 +5,8 @@ from flask import request
 
 app = Flask(__name__)
 
+# as the API evolves the different resources need to go in separate files but for now
+# I kept it simple and left everything in app.py 
 @app.route('/simulate', methods=['POST'])
 def get():
     no_of_requests = request.json['noOfRequests']
